@@ -1,0 +1,54 @@
+/*
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
+*/
+
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[] nums = new int[]{2, 7, 11, 15};
+		int target = 9;
+		System.out.println(twoSum(nums, target));
+		
+	}
+
+ 
+    public static int[] twoSum(int[] numbs, int target) {
+        Arrays.sort(numbs);
+        int[] numbers = null;
+        for (int i : numbs) {
+            if (numbers != null) {
+                break;
+            }
+            if (i >= target) {
+                break;
+            }
+            for (int j : numbs) {
+                if (j >= target) {
+                    break;
+                }
+                if (i + j == target) {
+                    numbers = new int[]{i, j};
+                    break;
+                }
+            }
+        }
+        if (numbers != null) {
+            numbers = new int[]{0, 0};
+        }
+        return numbers;
+    }
+}
